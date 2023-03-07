@@ -1,4 +1,7 @@
 '''
+Tuple is a collection of data type: unmutable
+
+
 my_tuple = tuple(["Toronto","Eddy","Boston"])
 print(my_tuple)
 
