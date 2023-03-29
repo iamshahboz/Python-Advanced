@@ -39,6 +39,10 @@ for key in my_dict.keys():
 for value in my_dict.values():
     print(value)
    
+# To get only keys or values you can do
+print(my_dict.keys())
+print(my_dict.values())
+    
 
 # you can combine both of them
 
