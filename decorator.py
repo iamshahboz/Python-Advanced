@@ -136,6 +136,7 @@
 
 # my_func()
 
+'''
 import functools 
 import time 
 
@@ -155,6 +156,32 @@ def waste_some_time(num_times):
         sum([i**2 for i in range(10000)])
 
 waste_some_time(3887)
+'''
+import functools 
+import time 
+
+def slow_down(func):
+    # Sleep for one seconds 
+    @functools.wraps(func)
+    def wrapper_slow_down(*args, **kwargs):
+        time.sleep(1)
+        return func(*args, **kwargs)
+    return wrapper_slow_down
+
+@slow_down
+def countdown(from_number):
+    if from_number < 1:
+        print('Time is finished')
+    else:
+        print(from_number)
+        countdown(from_number - 1)
+         
+
+countdown(11)
+
+
+
+
 
 
 
