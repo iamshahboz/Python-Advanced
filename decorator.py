@@ -3,21 +3,21 @@
 # In other words, decorator is a function that takes another function as argument and extends
 # its behavoir of this function without modification
 
-def start_end_decorator(func):
-    def wrapper(*args, **kwargs):
-        print('Start')
-        result = func(*args,**kwargs)
-        print('End')
-        return result
-    return wrapper
+# def start_end_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print('Start')
+#         result = func(*args,**kwargs)
+#         print('End')
+#         return result
+#     return wrapper
 
-@start_end_decorator
-def add_five(x):
-    return x+5
+# @start_end_decorator
+# def add_five(x):
+#     return x+5
     
 
-result = add_five(10)
-print(result)
+# result = add_five(10)
+# print(result)
 
 
 
@@ -135,6 +135,33 @@ print(result)
 #     print('Yoo')
 
 # my_func()
+
+import functools 
+import time 
+
+def timer(func):
+    def timer_wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        value = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        run_time = end_time - start_time
+        print(f' Finished {func.__name__!r} in {run_time:.4f} seconds')
+        return value 
+    return timer_wrapper 
+
+@timer
+def waste_some_time(num_times):
+    for _ in range(num_times):
+        sum([i**2 for i in range(10000)])
+
+waste_some_time(3887)
+
+
+
+
+
+
+
 
 
 
