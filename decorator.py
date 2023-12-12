@@ -141,14 +141,14 @@ import functools
 import time 
 
 def timer(func):
-    def timer_wrapper(*args, **kwargs):
+    def wrapper_timer(*args, **kwargs):
         start_time = time.perf_counter()
         value = func(*args, **kwargs)
         end_time = time.perf_counter()
         run_time = end_time - start_time
         print(f' Finished {func.__name__!r} in {run_time:.4f} seconds')
         return value 
-    return timer_wrapper 
+    return wrapper_timer 
 
 @timer
 def waste_some_time(num_times):
