@@ -157,6 +157,12 @@ def waste_some_time(num_times):
 
 waste_some_time(3887)
 '''
+
+
+'''
+one more example
+
+
 import functools 
 import time 
 
@@ -175,9 +181,12 @@ def countdown(from_number):
     else:
         print(from_number)
         countdown(from_number - 1)
-         
+
 
 countdown(11)
+
+'''
+
 
 
 
