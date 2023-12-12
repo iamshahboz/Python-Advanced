@@ -62,13 +62,57 @@ to clean-up tasks before the program exits.
 
 '''
 
-import atexit
+# import atexit
 
-@atexit.register
-def gfg_exit_handler():
-    print('Bye, Geeks!')
+# @atexit.register
+# def gfg_exit_handler():
+#     print('Bye, Geeks!')
 
-print('Hello Geeks')
+# print('Hello Geeks')
+
+
+# enum unique
+
+'''Enumeration or Enum is the set of unique names that have a unique value. They are useful,
+if we want to define a set of constants that have a specific meaning. The @unique decorator
+provided by enum module is used to ensure that enumeration members are unique'''
+
+# from enum import Enum, unique
+
+# @unique
+# class Days(Enum):
+#     MONDAY = 1
+#     TUESDAY = 2 
+#     WEDNESDAY = 3
+#     THURSDAY = 2
+
+# for day in Days:
+#     print(day)
+
+import time
+
+def timer(func):
+    def wrapper_timer(*args, **kwargs):
+        start_time = time.perf_counter()
+        value = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        execution_time = end_time - start_time
+        print(f'It took {execution_time:.4f} seconds to complete')
+        return value
+    return wrapper_timer
+
+@timer
+def waste_time(argument):
+    for _ in range(argument):
+        sum([i**2 for i in range(10000)])
+
+
+
+waste_time(1760)
+
+
+
+
 
 
 
