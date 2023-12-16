@@ -1,0 +1,156 @@
+DROP TABLE IF EXISTS sandbox.f1_ppl_2024, sandbox.f1_2023, sandbox.f1_ppl, sandbox.f2_2023, sandbox.f2_ppl, sandbox.f3_2023, sandbox.f3_ppl, sandbox.f1_2024, sandbox.f2_2024, sandbox.f3_2024, sandbox.f5_2024, sandbox.f6_2024, sandbox.pr_f1_ppl_sr_2024, sandbox.resh_ppl_sr_2024;
+
+update sandbox.zamarozit_srez set mon = 12;
+
+SELECT * FROM sandbox.zamarozit_srez;
+
+CREATE TABLE IF NOT EXISTS sandbox.f1_2023 as select * from tjk11.f1_2023;
+create table if not exists sandbox.f2_2023 as select * from tjk11.f2_2023;
+create table if not exists sandbox.f3_2023 as select * from tjk11.f3_2023;
+create table if not exists sandbox.f1_ppl as select * from tjk11.f1_ppl;
+
+CREATE INDEX IF NOT EXISTS sandbox_f1_ppl_d01_f10_index
+    ON sandbox.f1_ppl USING btree
+    (d01_f10 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f1_ppl_d1o_f10_idx
+
+-- DROP INDEX IF EXISTS tjk11.f1_ppl_d1o_f10_idx;
+
+CREATE INDEX IF NOT EXISTS sandbo_f1_ppl_d1o_f10_idx
+    ON sandbox.f1_ppl USING btree
+    (d1o_f10 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f1_ppl_d3g_f10_index
+
+-- DROP INDEX IF EXISTS tjk11.f1_ppl_d3g_f10_index;
+
+CREATE INDEX IF NOT EXISTS s_ppl_d3g_f10_index
+    ON sandbox.f1_ppl USING btree
+    (d3g_f10 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f1_ppl_d3n_f10_index
+
+-- DROP INDEX IF EXISTS tjk11.f1_ppl_d3n_f10_index;
+
+CREATE INDEX IF NOT EXISTS sand_ppl_d3n_f10_index
+    ON sandbox.f1_ppl USING btree
+    (d3n_f10 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f1_ppl_d3o_f10_index
+
+-- DROP INDEX IF EXISTS tjk11.f1_ppl_d3o_f10_index;
+
+CREATE INDEX IF NOT EXISTS sa_ppl_d3o_f10_index
+    ON sandbox.f1_ppl USING btree
+    (d3o_f10 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f1_ppl_index
+
+-- DROP INDEX IF EXISTS tjk11.f1_ppl_index;
+
+CREATE INDEX IF NOT EXISTS so_ppl_index
+    ON sandbox.f1_ppl USING btree
+    (d01_f10 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f1_ppl_mon_index
+
+-- DROP INDEX IF EXISTS tjk11.f1_ppl_mon_index;
+
+CREATE INDEX IF NOT EXISTS tur_ppl_mon_index
+    ON sandbox.f1_ppl USING btree
+    (mon ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: uuid_idx_f1_ppl_tmp_id
+
+-- DROP INDEX IF EXISTS tjk11.uuid_idx_f1_ppl_tmp_id;
+
+create table if not exists sandbox.f2_ppl as select * from tjk11.f2_ppl;
+
+
+CREATE INDEX IF NOT EXISTS tu_ppl_d01_f2_index
+    ON sandbox.f2_ppl USING btree
+    (d01_f2 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f2_ppl_d3g_f2_index
+
+-- DROP INDEX IF EXISTS tjk11.f2_ppl_d3g_f2_index;
+
+CREATE INDEX IF NOT EXISTS tt_ppl_d3g_f2_index
+    ON sandbox.f2_ppl USING btree
+    (d3g_f2 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f2_ppl_d3n_f2_index
+
+-- DROP INDEX IF EXISTS tjk11.f2_ppl_d3n_f2_index;
+
+CREATE INDEX IF NOT EXISTS lc_ppl_d3n_f2_index
+    ON sandbox.f2_ppl USING btree
+    (d3n_f2 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f2_ppl_d3o_f2_index
+
+-- DROP INDEX IF EXISTS tjk11.f2_ppl_d3o_f2_index;
+
+CREATE INDEX IF NOT EXISTS ds_ppl_d3o_f2_index
+    ON sandbox.f2_ppl USING btree
+    (d3o_f2 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f2_ppl_index
+
+-- DROP INDEX IF EXISTS tjk11.f2_ppl_index;
+
+CREATE INDEX IF NOT EXISTS er_ppl_index
+    ON sandbox.f2_ppl USING btree
+    (d01_f2 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: uuid_idx_f2_ppl_tmp_id
+
+-- DROP INDEX IF EXISTS tjk11.uuid_idx_f2_ppl_tmp_id;
+
+
+
+create table if not exists sandbox.f3_ppl as select * from tjk11.f3_ppl;
+
+
+CREATE INDEX IF NOT EXISTS rr_ppl_d01_f3_index
+    ON sandbox.f3_ppl USING btree
+    (d01_f3 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f3_ppl_d3g_f3_index
+
+-- DROP INDEX IF EXISTS tjk11.f3_ppl_d3g_f3_index;
+
+CREATE INDEX IF NOT EXISTS ff_ppl_d3g_f3_index
+    ON sandbox.f3_ppl USING btree
+    (d3g_f3 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f3_ppl_d3n_f3_index
+
+-- DROP INDEX IF EXISTS tjk11.f3_ppl_d3n_f3_index;
+
+CREATE INDEX IF NOT EXISTS we_ppl_d3n_f3_index
+    ON sandbox.f3_ppl USING btree
+    (d3n_f3 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f3_ppl_d3o_f3_index
+
+-- DROP INDEX IF EXISTS tjk11.f3_ppl_d3o_f3_index;
+
+CREATE INDEX IF NOT EXISTS lk_ppl_d3o_f3_index
+    ON sandbox.f3_ppl USING btree
+    (d3o_f3 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f3_ppl_index
+
+-- DROP INDEX IF EXISTS tjk11.f3_ppl_index;
+
+CREATE INDEX IF NOT EXISTS ww_ppl_index
+    ON sandbox.f3_ppl USING btree
+    (d01_f3 ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: f3_ppl_mon_index
+
+-- DROP INDEX IF EXISTS tjk11.f3_ppl_mon_index;
+
+
