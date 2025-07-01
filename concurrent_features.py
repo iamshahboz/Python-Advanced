@@ -17,6 +17,8 @@ For image processing and training machine learning models you should use process
 
 # Function to compute sum of squares
 import time 
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
+import requests
 
 # def sum_of_squares(n):
 #     return sum(i * i for i in range(n))
@@ -32,21 +34,47 @@ import time
 #     print(f'Single thread time: {end-start:.2f} seconds')
 
 # now lets test with process
-from concurrent.futures import ProcessPoolExecutor
 
-def sum_of_squares(n):
-    return sum(i * i for i in range(n))
+
+# def sum_of_squares(n):
+#     return sum(i * i for i in range(n))
+
+# if __name__ == '__main__':
+#     numbers = [10_000_000, 20_000_000, 30_000_000, 40_000_000]
+
+#     start = time.time()
+#     with ProcessPoolExecutor() as executor:
+#         results = list(executor.map(sum_of_squares, numbers))
+    
+#     end = time.time()
+
+#     print('Results',results)
+#     print(f'Single thread time: {end-start:.2f} seconds')
+
+## Now lets see the usage of Thread for I/0 bound tasks
+
+
+
+def fetch_url(url):
+    response = requests.get(url)
+    return f'{url} -> {response.status_code}'
 
 if __name__ == '__main__':
-    numbers = [10_000_000, 20_000_000, 30_000_000, 40_000_000]
+    urls = [
+    "https://httpbin.org/delay/2",
+    "https://httpbin.org/delay/2",
+    "https://httpbin.org/delay/2",
+    "https://httpbin.org/delay/2"
+    ]
 
-    start = time.time()
-    with ProcessPoolExecutor() as executor:
-        results = list(executor.map(sum_of_squares, numbers))
-    
-    end = time.time()
+start = time.time()
 
-    print('Results',results)
-    print(f'Single thread time: {end-start:.2f} seconds')
+results = [fetch_url(url) for url in urls]
+
+
+end = time.time()
+print(f'Single Threaded time: {end-start:.2f} seconds')
+
+# last_time 8:20
 
 
