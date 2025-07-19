@@ -67,14 +67,38 @@ if __name__ == '__main__':
     "https://httpbin.org/delay/2"
     ]
 
+# start = time.time()
+
+# results = [fetch_url(url) for url in urls]
+
+
+# end = time.time()
+# print(f'Single Threaded time: {end-start:.2f} seconds')
+
+#last_time 8:20
+
+# now lets see the usage of ThreadPoolExecutor
+
 start = time.time()
 
-results = [fetch_url(url) for url in urls]
+
+with ThreadPoolExecutor() as executor:
+    results = list(executor.map(fetch_url, urls))
 
 
 end = time.time()
 print(f'Single Threaded time: {end-start:.2f} seconds')
 
-# last_time 8:20
 
+'''
+As the result
+for fetching urls
 
+with thread pool executor it took
+
+Single Threaded time: 3.30 seconds
+
+and without
+
+Single Threaded time: 13.82 seconds
+'''
