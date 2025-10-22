@@ -96,9 +96,9 @@ for fetching urls
 
 with thread pool executor it took
 
-Single Threaded time: 3.30 seconds
+ time: 3.30 seconds
 
 and without
 
-Single Threaded time: 13.82 seconds
+ time: 13.82 seconds
 '''
