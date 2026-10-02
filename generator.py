@@ -48,7 +48,7 @@ def firstn(n):
         num +=1
     return nums 
 
-print(sys.getsizeof(firstn(20000)))
+#print(sys.getsizeof(firstn(20000)))
 
 # with this way, all the numbers are stored in this list
 # You can use generator instead
@@ -59,9 +59,32 @@ def firstn_generator(n):
         yield num
         num += 1
 
-print(sys.getsizeof(firstn_generator(20000)))
+#print(sys.getsizeof(firstn_generator(20000)))
 
 # you can analyze this, and you can see huge difference
+
+# Generator vs list returning function
+
+def squares_list(n):
+    result = []
+    for i in range(n):
+        result.append(i*i)
+    return result # builds everything in memory first 
+
+def squares_gen(n):
+    for i in range(n):
+        yield i * i # produces one value at a time 
+
+print(squares_list(40))
+
+
+gen = squares_gen(3)
+
+print(next(gen))   # 0
+print(next(gen))   # 1
+print(next(gen))   # 4
+
+
 
 
 
